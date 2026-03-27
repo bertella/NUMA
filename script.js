@@ -1,63 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('main-header');
-    const modal = document.getElementById('modal-luxury');
-    const openModalBtn = document.getElementById('open-newsletter');
-    const closeModalBtn = document.getElementById('close-modal');
-    const form = document.getElementById('luxury-form');
+    const modal = document.getElementById('modalLead');
+    const closeBtn = document.getElementById('closeModal');
+    const leadForm = document.getElementById('leadForm');
+    const submitBtn = document.getElementById('submitBtn');
 
-    // 1. Efecto Scroll en Header
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    // 1. Mostrar modal después de 5 segundos si no ha sido cerrado en esta sesión
+    if (!sessionStorage.getItem('numaModalClosed')) {
+        setTimeout(() => {
+            modal.style.display = 'flex';
+        }, 5000);
+    }
+
+    // 2. Función para cerrar modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+        sessionStorage.setItem('numaModalClosed', 'true');
+    };
+
+    // Evento click en 'X'
+    closeBtn.addEventListener('click', closeModal);
+
+    // 3. Cerrar al hacer clic fuera del contenido (en el overlay)
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
         }
     });
 
-    // 2. Lógica de Modal
-    const openModal = () => {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Evita scroll
-    };
-
-    const closeModal = () => {
-        modal.classList.remove('active');
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 500); // Espera a la animación
-        document.body.style.overflow = '';
-    };
-
-    // Mostrar modal automáticamente a los 4 segundos (solo una vez)
-    if (!localStorage.getItem('modalSeen')) {
-        setTimeout(() => {
-            modal.style.display = 'flex';
-            setTimeout(openModal, 10);
-            localStorage.setItem('modalSeen', 'true');
-        }, 4000);
-    }
-
-    openModalBtn.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        setTimeout(openModal, 10);
-    });
-
-    closeModalBtn.addEventListener('click', closeModal);
-
-    // Cerrar al hacer clic fuera del contenido
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    // 3. Manejo del Formulario
-    form.addEventListener('submit', (e) => {
+    // 4. Lógica de envío de formulario
+    leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const btn = form.querySelector('button');
-        btn.innerText = "BIENVENIDO A LA ÉLITE";
-        btn.style.opacity = "0.7";
         
+        // Simular carga y cambio de estado
+        submitBtn.innerText = 'PROCESANDO...';
+        submitBtn.disabled = true;
+
         setTimeout(() => {
-            closeModal();
-        }, 2000);
+            submitBtn.style.backgroundColor = '#D9C5B2'; // Color Kraft
+            submitBtn.style.color = '#111';
+            submitBtn.innerText = '¡BIENVENIDO A LA ÉLITE!';
+            
+            // Cerrar automáticamente después de un éxito
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
+        }, 1500);
     });
 });

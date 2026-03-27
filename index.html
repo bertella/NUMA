@@ -4,134 +4,277 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NUMA | Nutrición de Élite</title>
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Tailwind CDN -->
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (Para utilidades de Layout) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-crema-js text-oliva-js font-sans antialiased">
+<body>
 
-    <!-- HEADER -->
-    <header class="fixed w-full z-50 transition-all duration-300" id="main-header">
-        <nav class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
-            <div class="text-3xl font-serif tracking-tighter font-bold">NUMA</div>
-            <ul class="hidden md:flex space-x-12 text-[10px] uppercase tracking-[0.4em] font-semibold">
-                <li><a href="#snacks" class="nav-link">Snacks</a></li>
-                <li><a href="#sopas" class="nav-link">Sopas</a></li>
-                <li><a href="#elixires" class="nav-link">Elíxires</a></li>
-                <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-            </ul>
-            <button id="open-newsletter" class="text-[10px] uppercase tracking-widest border-b border-oliva-js pb-1 hover:text-oro-js hover:border-oro-js transition">Membresía</button>
-        </nav>
-    </header>
+    <!-- NAV -->
+    <nav class="nav-minimal">
+        <div class="logo">NUMA</div>
+        <ul class="nav-links">
+            <li><a href="#productos">Colección</a></li>
+            <li><a href="#beneficios">Filosofía</a></li>
+            <li><a href="#" class="cta-small">Comprar</a></li>
+        </ul>
+    </nav>
 
-    <main>
-        <!-- HERO SECTION -->
-        <section class="relative h-screen flex items-center justify-center overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?auto=format&fit=crop&q=80&w=1920" 
-                     class="w-full h-full object-cover scale-105" id="hero-img" alt="Nutrición de Élite">
-                <div class="absolute inset-0 bg-black/30"></div>
-            </div>
-            <div class="relative z-10 text-center px-4">
-                <span class="text-white uppercase tracking-[0.6em] text-[10px] mb-4 block animate-fade-in">Córdoba, Argentina</span>
-                <h1 class="font-serif text-6xl md:text-9xl text-white mb-8 leading-tight italic">
-                    Nutrición <span class="not-italic">Pura</span>
-                </h1>
-                <a href="#snacks" class="btn-luxury-solid inline-block">Descubre la Colección</a>
-            </div>
-        </section>
-
-        <!-- SECCIÓN PRODUCTOS -->
-        <section class="max-w-7xl mx-auto px-8 py-32">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
-                <!-- Snacks -->
-                <article id="snacks" class="product-card group cursor-pointer">
-                    <div class="aspect-[4/5] overflow-hidden mb-8 relative">
-                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=800" 
-                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Snacks Crunchy">
-                        <div class="absolute inset-0 bg-oliva-js/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    </div>
-                    <h3 class="font-serif text-3xl mb-4 italic">Snacks Crunchy</h3>
-                    <p class="text-sm font-light leading-relaxed mb-8 opacity-70">Deshidratación lenta. Honestidad en cada mordida. Sin aditivos.</p>
-                    <button class="btn-luxury-outline w-full">Explorar Variedad</button>
-                </article>
-
-                <!-- Sopas -->
-                <article id="sopas" class="product-card group cursor-pointer md:mt-12">
-                    <div class="aspect-[4/5] overflow-hidden mb-8 relative">
-                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&q=80&w=800" 
-                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Sopas Velvet">
-                    </div>
-                    <h3 class="font-serif text-3xl mb-4 italic">Sopas Velvet</h3>
-                    <p class="text-sm font-light leading-relaxed mb-8 opacity-70 text-terracota-js">El abrazo cálido de la naturaleza, listo en minutos.</p>
-                    <button class="btn-luxury-outline w-full">Explorar Variedad</button>
-                </article>
-
-                <!-- Isotónica -->
-                <article id="elixires" class="product-card group cursor-pointer">
-                    <div class="aspect-[4/5] overflow-hidden mb-8 relative">
-                        <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&q=80&w=800" 
-                             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="Isotónica Elixir">
-                    </div>
-                    <h3 class="font-serif text-3xl mb-4 italic">Isotónica Elixir</h3>
-                    <p class="text-sm font-light leading-relaxed mb-8 opacity-70">Rendimiento puro y transparente. Energía redefinida.</p>
-                    <button class="btn-luxury-outline w-full">Explorar Variedad</button>
-                </article>
-            </div>
-        </section>
-
-        <!-- COMPROMISO -->
-        <section id="nosotros" class="bg-oliva-js text-crema-js py-40">
-            <div class="max-w-4xl mx-auto px-8 text-center">
-                <span class="text-oro-js uppercase tracking-[0.5em] text-[10px] font-bold mb-10 block">Nuestra Filosofía</span>
-                <h2 class="font-serif text-4xl md:text-7xl mb-12 leading-tight">La esencia del bienestar exigente.</h2>
-                <p class="text-lg md:text-2xl font-light leading-relaxed opacity-80 italic max-w-2xl mx-auto">
-                    "Honramos la tierra mediante procesos sin prisas. Solo lo que tu cuerpo merece."
-                </p>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="py-20 text-center bg-crema-js">
-        <div class="text-3xl font-serif mb-8 italic tracking-tighter">NUMA</div>
-        <div class="flex justify-center space-x-8 mb-10 text-[10px] uppercase tracking-widest font-medium">
-            <a href="#" class="hover:text-oro-js transition">Instagram</a>
-            <a href="#" class="hover:text-oro-js transition">Contacto</a>
-            <a href="#" class="hover:text-oro-js transition">Puntos de Venta</a>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Pureza Sin Concesiones</h1>
+            <p class="fade-in-delay">Comida deshidratada de origen orgánico para el ritmo de vida moderno.</p>
+            <a href="#productos" class="btn-kraft">Explorar la Selección</a>
         </div>
-        <div class="text-[9px] uppercase tracking-[0.4em] opacity-40">© 2024 Luxury Nutrition. Argentina.</div>
-    </footer>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section id="beneficios" class="benefits">
+        <div class="benefit-item">
+            <span>01</span>
+            <h3>100% RAW</h3>
+            <p>Nutrientes intactos mediante deshidratación lenta a baja temperatura.</p>
+        </div>
+        <div class="benefit-item">
+            <span>02</span>
+            <h3>READY IN 5'</h3>
+            <p>Máxima calidad gastronómica lista en solo cinco minutos.</p>
+        </div>
+        <div class="benefit-item">
+            <span>03</span>
+            <h3>ZERO SUGAR</h3>
+            <p>Sin aditivos, conservantes ni azúcares añadidos. Solo lo real.</p>
+        </div>
+    </section>
+
+    <!-- PRODUCT GRID -->
+    <section id="productos" class="products-grid">
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=800" alt="Soups">
+            </div>
+            <h2>SOUPS</h2>
+            <p>Terciopelo vegetal y caldos curativos.</p>
+        </div>
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800" alt="Snacks">
+            </div>
+            <h2>SNACKS</h2>
+            <p>Crujientes, honestos y energizantes.</p>
+        </div>
+        <div class="product-card">
+            <div class="img-wrapper">
+                <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?q=80&w=800" alt="Isotonics">
+            </div>
+            <h2>ISOTÓNICAS</h2>
+            <p>Hidratación profunda con electrolitos reales.</p>
+        </div>
+    </section>
 
     <!-- MODAL POPUP -->
-    <div id="modal-luxury" class="modal-overlay">
-        <div class="modal-content md:flex shadow-2xl overflow-hidden">
-            <button id="close-modal" class="close-modal-btn" aria-label="Cerrar">&times;</button>
+    <div id="modalLead" class="modal-overlay">
+        <div class="modal-container">
+            <button id="closeModal" class="close-btn">&times;</button>
             
-            <div class="hidden md:block w-1/2 bg-center bg-cover" 
-                 style="background-image: url('https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&q=80&w=600');">
-            </div>
+            <!-- Imagen Aspiracional (Visible en desktop) -->
+            <div class="modal-image"></div>
             
-            <div class="w-full md:w-1/2 p-16 flex flex-col justify-center bg-crema-js">
-                <h2 class="font-serif text-4xl mb-4 italic">El Círculo Numa</h2>
-                <p class="text-[10px] uppercase tracking-[0.3em] text-oro-js font-bold mb-10">Acceso exclusivo y 15% OFF inicial</p>
+            <!-- Contenido Formulario -->
+            <div class="modal-form-content">
+                <span class="label-luxury">Newsletter Privada</span>
+                <h2>Únete al Círculo NUMA</h2>
+                <p>Recibe un 15% de cortesía en tu primera orden y acceso a lanzamientos limitados.</p>
                 
-                <form id="luxury-form" class="space-y-8">
-                    <input type="text" placeholder="NOMBRE COMPLETO" class="input-luxury" required>
-                    <input type="email" placeholder="EMAIL" class="input-luxury" required>
-                    <select class="input-luxury bg-transparent">
-                        <option value="" disabled selected>OBJETIVO DE SALUD</option>
-                        <option>Rendimiento Deportivo</option>
-                        <option>Longevidad</option>
-                        <option>Bienestar Diario</option>
+                <form id="leadForm" class="space-y-4">
+                    <input type="text" id="name" placeholder="Tu nombre" required class="input-luxury">
+                    <input type="email" id="email" placeholder="Email profesional" required class="input-luxury">
+                    <select id="goal" class="input-luxury" required>
+                        <option value="" disabled selected>Objetivo de Salud</option>
+                        <option value="performance">Rendimiento Deportivo</option>
+                        <option value="longevity">Longevidad y Biohacking</option>
+                        <option value="weight">Control de Peso Gourmet</option>
                     </select>
-                    <button type="submit" class="btn-luxury-solid w-full text-[10px]">Unirme a la Élite</button>
+                    <button type="submit" id="submitBtn" class="btn-black-full">Solicitar Acceso</button>
                 </form>
             </div>
         </div>
     </div>
+    <!-- SECCIÓN COMPARATIVA -->
+<section class="comparison-section">
+    <div class="comparison-container">
+        <div class="comparison-header">
+            <span class="label-luxury">Análisis de Pureza</span>
+            <h2 class="comparison-main-title">EL ESTÁNDAR NUMA</h2>
+            <p class="comparison-subtitle">Transparencia radical frente a la industria tradicional.</p>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="numa-table">
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th class="col-numa">NUMA</th>
+                        <th>Otros</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Ingredientes</td>
+                        <td class="numa-cell"><span class="check">✓</span> 100% Orgánicos y Reales</td>
+                        <td class="others-cell"><span class="dash">—</span> Conservantes y Colorantes</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Preparación</td>
+                        <td class="numa-cell"><span class="check">✓</span> 5 Minutos (Hidratación)</td>
+                        <td class="others-cell"><span class="dash">—</span> Procesamiento Industrial</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Azúcares</td>
+                        <td class="numa-cell"><span class="check">✓</span> Zero Añadidos</td>
+                        <td class="others-cell"><span class="dash">—</span> Jarabes y Endulzantes</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Post-Ingesta</td>
+                        <td class="numa-cell"><span class="check">✓</span> Energía Sostenida</td>
+                        <td class="others-cell"><span class="dash">—</span> Pesadez e Inflamación</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</section>
+<!-- 1. MOMENTOS DE USO (LIFESTYLE) -->
+<section class="lifestyle-moments">
+    <div class="container">
+        <span class="label-luxury text-center">Diseñado para tu Ritmo</span>
+        <h2 class="section-title text-center">NUMA EN TU DÍA</h2>
+        
+        <div class="moments-grid">
+            <article class="moment-item">
+                <div class="moment-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=800" alt="Oficina">
+                </div>
+                <h3>OFICINA</h3>
+                <p>Tu almuerzo nutritivo entre reuniones.</p>
+            </article>
+
+            <article class="moment-item">
+                <div class="moment-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800" alt="Gym">
+                </div>
+                <h3>PRE/POST GYM</h3>
+                <p>Carga de energía sin pesadez.</p>
+            </article>
+
+            <article class="moment-item">
+                <div class="moment-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=800" alt="Outdoor">
+                </div>
+                <h3>OUTDOOR</h3>
+                <p>Liviano en tu mochila, potente en tu cuerpo.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- 2. BATCH COOKING (PACK SEMANAL) -->
+<section class="pack-banner">
+    <div class="pack-content">
+        <h2 class="pack-title">PACK 7 DÍAS</h2>
+        <p class="pack-message">Resolvé tu nutrición de toda la semana por el precio de <strong>2 cenas afuera.</strong></p>
+        <p class="pack-subtext">Optimización radical de tu tiempo y energía.</p>
+        <a href="#" class="btn-black-cta">QUIERO MI PACK SEMANAL</a>
+    </div>
+</section>
+
+<!-- 3. FAQ ESTRATÉGICO -->
+<section class="faq-minimal">
+    <div class="container-small">
+        <h2 class="faq-title">Consultas Frecuentes</h2>
+        
+        <div class="accordion">
+            <details class="faq-item">
+                <summary>¿Cómo se conserva?</summary>
+                <div class="faq-answer">
+                    <p>No necesita heladera. Nuestro proceso de deshidratación natural permite una conservación perfecta a temperatura ambiente. Ideal para el cajón de la oficina, la guantera del auto o tu mochila de viaje.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>¿Hacen envíos?</summary>
+                <div class="faq-answer">
+                    <p>Sí, realizamos envíos express en toda la ciudad de Córdoba (24hs) y envíos coordinados a todo el país para que nunca te falte tu reserva NUMA.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>¿Es apto para dietas especiales?</summary>
+                <div class="faq-answer">
+                    <p>Absolutamente. Todas nuestras opciones son 100% Raw, Veganas y libres de azúcar agregada. Trabajamos con ingredientes reales para que tu cuerpo reciba combustible de alta calidad.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+<!-- FOOTER NUMA QUIET LUXURY -->
+<footer class="footer-premium">
+    <div class="footer-container">
+        <!-- Bloque 1: Marca -->
+        <div class="footer-col brand-info">
+            <img src="https://i.postimg.cc/85zPzYp1/numa-logo.jpg" alt="NUMA Seal" class="footer-logo-circle">
+            <h3 class="footer-slogan">Fuel for the Restless</h3>
+            <p class="footer-description">Nutrición de alto impacto para el ritmo urbano.</p>
+            <div class="footer-socials">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">TikTok</a>
+                <a href="#" class="social-link">Facebook</a>
+            </div>
+        </div>
+
+        <!-- Bloque 2: Navegación -->
+        <div class="footer-col">
+            <h4 class="footer-title">Explorar</h4>
+            <nav class="footer-nav">
+                <a href="#productos">Colección</a>
+                <a href="#">Pack Semanal</a>
+                <a href="#">Suscripción</a>
+            </nav>
+        </div>
+
+        <!-- Bloque 3: Contacto & Soporte -->
+        <div class="footer-col">
+            <h4 class="footer-title">Soporte</h4>
+            <nav class="footer-nav">
+                <a href="https://wa.me/tu-numero" target="_blank">WhatsApp Ventas</a>
+                <a href="#">Envíos en Córdoba</a>
+                <a href="#">Preguntas Frecuentes</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Barra Legal -->
+    <div class="footer-bottom">
+        <div class="footer-container bottom-flex">
+            <p class="copyright">© 2026 NUMA. Todos los derechos reservados.</p>
+            <a href="#" class="legal-link">Términos y Condiciones</a>
+        </div>
+    </div>
+</footer>
+
+<!-- 4. INTERCALADO VISUAL (RESPIRO FINAL) -->
+<section class="final-hero-break">
+    <div class="hero-break-img"></div>
+</section>
 
     <script src="script.js"></script>
 </body>
