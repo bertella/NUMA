@@ -1,0 +1,159 @@
+:root {
+    --crema: #FDFCF5;
+    --oliva: #4A5D23;
+    --terracota: #A0522D;
+    --oro: #D4AF37;
+}
+
+/* Clases de utilidad */
+.bg-crema-js { background-color: var(--crema); }
+.text-oliva-js { color: var(--oliva); }
+.text-terracota-js { color: var(--terracota); }
+.bg-oliva-js { background-color: var(--oliva); }
+
+/* Tipografía */
+h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Header dinámico */
+header.scrolled {
+    background-color: rgba(253, 252, 245, 0.95);
+    padding: 1rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.nav-link {
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--oro);
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Botones Luxury */
+.btn-luxury-solid {
+    background-color: var(--oliva);
+    color: var(--crema);
+    padding: 1.25rem 2.5rem;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid var(--oliva);
+}
+
+.btn-luxury-solid:hover {
+    background-color: transparent;
+    color: var(--oliva);
+    transform: translateY(-4px);
+}
+
+.btn-luxury-outline {
+    background-color: transparent;
+    color: var(--oliva);
+    padding: 1.2rem 2rem;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    font-weight: 600;
+    border: 1px solid rgba(74, 93, 35, 0.15);
+    transition: all 0.4s ease;
+}
+
+.btn-luxury-outline:hover {
+    border-color: var(--oliva);
+    background-color: var(--oliva);
+    color: var(--crema);
+}
+
+/* Formulario */
+.input-luxury {
+    width: 100%;
+    border-bottom: 1px solid rgba(74, 93, 35, 0.15);
+    padding: 1rem 0;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    color: var(--oliva);
+    outline: none;
+    transition: all 0.3s;
+    background: transparent;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.input-luxury:focus {
+    border-bottom-color: var(--oro);
+}
+
+/* Modal Popup */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 15, 10, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 1000px;
+    background-color: var(--crema);
+    transform: translateY(40px);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 1.5rem;
+    color: var(--oliva);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s;
+}
+
+.close-modal-btn:hover { color: var(--oro); }
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 1.2s ease forwards;
+}
